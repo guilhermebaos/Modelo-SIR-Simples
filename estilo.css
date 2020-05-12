@@ -1,0 +1,24 @@
+body {
+    background: rgba(0, 185, 240, 0.2);
+    font: normal 15pt Liberation;
+}
+
+header {
+    text-align: center;
+}
+
+section {
+    text-align: center;
+}
+input.slider {
+    height: 25px;
+    width: 40%;
+    opacity: 50%;
+}
+input.slider:hover{
+    opacity: 100%;
+}
+
+footer {
+    text-align: center;
+}
