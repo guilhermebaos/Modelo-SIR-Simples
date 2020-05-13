@@ -27,7 +27,7 @@ input.slider {
     margin-top: 10px;
     height: 100%;
     width: 30vw;
-    opacity: 50%;
+    opacity: 70%;
 }
 input.slider:hover{
     opacity: 100%;
