@@ -9,19 +9,20 @@
 </head>
 <body>
     <header>
-        Modelo SIR
+        <h1>Modelo SIR</h1>
     </header>
 
     <section class="sliders">
-        <div class="div_inf">
-            <input type="range" name="inf" id="inf" min="0" max="20" value="10" class="slider">
-        </div>
-        <div class="div_rec">
-            <input type="range" name="rec" id="rec" min="0" max="20" value="10" class="slider">
-        </div>
-        <div class="div_tim">
-            <input type="range" name="tim" id="tim" min="0" max="200" value="100" class="slider">
-        </div>
+        <table class="centered" id="sliders" >
+            <tr>
+                <td><label for="inf">Velocidade de infeção: </label></td>
+                <td><input type="range" name="inf" id="inf" class="slider" min="0" max="20" value="10"></td>
+            </tr>
+            <tr>
+                <td><label for="inf">Tempo de Recuperação: </label></td>
+                <td><input type="range" name="rec" id="rec" class="slider" min="0" max="20" value="10"></td>
+            </tr>
+        </table>
     </section>
 
     <footer>
