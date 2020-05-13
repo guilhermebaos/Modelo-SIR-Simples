@@ -1,26 +1,37 @@
 body {
-    background: rgba(0, 185, 240, 0.2);
+    background: rgba(51, 139, 240, 0.3);
     font: normal 15pt Liberation;
 }
 
 header {
     text-align: center;
+    padding-top: 5px;
 }
 
+main {
+    background: white;
+    border-radius: 10px;
+    margin: auto;
+    width: 75%;
+}
 
-section {
+div {
     text-align: center;
 }
 
+table {
+    padding: 20px;
+}
 table.centered {
     margin: auto;
     width: fit-content;
 }
-table.centered tr {
-    height: 40px;
-}
 table.centered tr td.slider-label {
     text-align: right;
+}
+td p {
+    height: 20px;
+    margin: 0px;
 }
 
 input.slider {
