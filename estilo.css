@@ -7,21 +7,32 @@ header {
     text-align: center;
 }
 
+
 section {
     text-align: center;
 }
+
 table.centered {
     margin: auto;
+    width: fit-content;
 }
+table.centered tr {
+    height: 40px;
+}
+table.centered tr td.slider-label {
+    text-align: right;
+}
+
 input.slider {
     margin-top: 10px;
-    height: 25px;
-    width: 40%;
+    height: 100%;
+    width: 30vw;
     opacity: 50%;
 }
 input.slider:hover{
     opacity: 100%;
 }
+
 
 footer {
     text-align: center;
