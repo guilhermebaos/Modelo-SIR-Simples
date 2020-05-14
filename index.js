@@ -100,14 +100,17 @@ function deltas() {
     // Calcular as derivadas por time-step
     for(let t = tempo; t < tempo_max; t++ ) {
 
+        // Variações de cada um dos grupos por time-step
         deltaSus = (-infVel * sus * inf) * resol
         deltaInf = (infVel * sus * inf - recVel * inf) * resol
         deltaRec = (recVel * inf) * resol
 
+        // Valor atual da percentagem da população em cada grupo
         sus += deltaSus
         inf += deltaInf
         rec += deltaRec
 
+        // Adição aos arrays dos valores calculados
         xTempo.push(t)
         dataSus.push(sus * 100)
         dataInf.push(inf * 100)
