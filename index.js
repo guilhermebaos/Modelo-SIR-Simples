@@ -6,21 +6,26 @@ let recVelSlider = document.getElementById('rec')
 let infResp = document.getElementById('infValue')
 let recResp = document.getElementById('recValue')
 
-// Selecionar o canvas para desenhar os gráficos
-let simplesSIR = document.getElementById('simplesSIR').getContext('2d')
-
+// Selecionar a Div onde vão estar os gráficos
+let divSimplesSIR = document.getElementById('div-simplesSIR')
 
 
 // Obter os Valores e mostrá-los, através de Event Listeners
 infVelSlider.oninput = function atualizarInf() {
     let infVel = infVelSlider.value / 10
     infResp.innerHTML = `${infVel}`
+
+    canvasSIR = document.getElementById('simplesSIR')
+    divSimplesSIR.removeChild(canvasSIR)
     atualizarSIR()
 }
 
 recVelSlider.oninput = function atualizarRec() {
     let recVel = recVelSlider.value / 100
     recResp.innerHTML = `${recVel}`
+
+    canvasSIR = document.getElementById('simplesSIR')
+    divSimplesSIR.removeChild(canvasSIR)
     atualizarSIR()
 }
 
@@ -28,6 +33,15 @@ recVelSlider.oninput = function atualizarRec() {
 
 // Atualizar o Gráfico
 function atualizarSIR() {
+    canvasSIR = document.createElement('canvas')
+
+    canvasSIR.setAttribute('id', 'simplesSIR')
+    canvasSIR.setAttribute('width', '400')
+    canvasSIR.setAttribute('height', '200')
+
+    divSimplesSIR.appendChild(canvasSIR)
+
+
     // Obter os arrays com as percentagens
     let allDeltas = deltas()
     let xTempo = allDeltas[0]
@@ -36,7 +50,7 @@ function atualizarSIR() {
     let dataRec = allDeltas[3]
     
     // Criar o gráfico
-    let graSimplesSIR = new Chart(simplesSIR, {
+    let graSimplesSIR = new Chart(canvasSIR, {
         type: 'line',
         data: {
             labels: xTempo,
