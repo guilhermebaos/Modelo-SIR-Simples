@@ -12,22 +12,31 @@
         <header>
             <h1>Modelo SIR</h1>
         </header>
-
-        <div class="sliders">
-            <table class="centered" id="sliders" >
-                <tr>
-                    <td class="slider-label"><label for="inf">Velocidade de Infeção: </label></td>
-                    <td><input type="range" name="inf" id="inf" class="slider" min="10" max="30" value="20"></td>
-                    <td><p id="infValue">2</p></td>
-                </tr>
-                <tr>
-                    <td class="slider-label"><label for="inf">Velocidade de Recuperação: </label></td>
-                    <td><input type="range" name="rec" id="rec" class="slider" min="20" max="100" value="60"></td>
-                    <td><p id="recValue">0.6</p></td>
-                </tr>
-            </table>
-        </div>
-
+        <section>
+            <div class="text">
+                <p>
+                    O <a href="https://op12no2.me/stuff/tjsir.pdf">modelo SIR</a> descreve matematicamente a evolução de uma doença numa população.
+                    O modelo divide a população em compartimentos e acompanha a sua evolução ao longo do tempo.
+                </p>
+                <p>
+                    Este género de modelos tem bastantes limitações, relacionadas com <a href="premissas.html">as premissas que tem de assumir</a> para ser válido.
+                </p>
+            </div>
+            <div class="sliders">
+                <table class="centered" id="sliders" >
+                    <tr>
+                        <td class="slider-label"><label for="inf">Velocidade de Infeção: </label></td>
+                        <td><input type="range" name="inf" id="inf" class="slider" min="10" max="30" value="20"></td>
+                        <td><p id="infValue">2</p></td>
+                    </tr>
+                    <tr>
+                        <td class="slider-label"><label for="inf">Velocidade de Recuperação: </label></td>
+                        <td><input type="range" name="rec" id="rec" class="slider" min="20" max="100" value="60"></td>
+                        <td><p id="recValue">0.6</p></td>
+                    </tr>
+                </table>
+            </div>
+        </section>
         <section id="graphs" class="graphs">
             <div id="div-simplesSIR" class="div-simplesSIR">
             </div>
