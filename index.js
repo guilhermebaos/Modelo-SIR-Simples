@@ -30,6 +30,11 @@ remVelSlider.oninput = function atualizarRem() {
 }
 
 
+// Função para arredondar valores (PODE SER OTIMIZADA/ REMOVIDA)
+function arredondar(num=0, casas=1) {
+    let arredondado = (Math.round(num * (10 * casas)) / (10 * casas)).toFixed(casas)
+    return arredondado
+}
 
 // Atualizar o Gráfico
 function atualizarSIR() {
@@ -77,6 +82,14 @@ function atualizarSIR() {
         },
         options: {
             scales: {
+                xAxes: [
+                    {
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Tempo'
+                        }
+                    }
+                ],
                 yAxes: [
                     {
                         ticks: {
@@ -126,9 +139,9 @@ function deltas() {
 
         // Adição aos arrays dos valores calculados
         xTempo.push(t)
-        dataSus.push(sus * 100)
-        dataInf.push(inf * 100)
-        dataRem.push(rem * 100)
+        dataSus.push(arredondar(sus * 100, 2))
+        dataInf.push(arredondar(inf * 100, 2))
+        dataRem.push(arredondar(rem * 100, 2))
 
         if (deltaSus >= -0.00001 && deltaInf <= 0.00001 && t > 30) {
             break
