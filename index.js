@@ -1,10 +1,10 @@
 // Selecionar os Sliders
 let infVelSlider = document.getElementById('inf')
-let recVelSlider = document.getElementById('rec')
+let remVelSlider = document.getElementById('rem')
 
 //Selecionar os parágrafos
 let infResp = document.getElementById('infValue')
-let recResp = document.getElementById('recValue')
+let remResp = document.getElementById('remValue')
 
 // Selecionar a Div onde vão estar os gráficos
 let divSimplesSIR = document.getElementById('div-simplesSIR')
@@ -20,9 +20,9 @@ infVelSlider.oninput = function atualizarInf() {
     atualizarSIR()
 }
 
-recVelSlider.oninput = function atualizarRec() {
-    let recVel = recVelSlider.value / 100
-    recResp.innerHTML = `${recVel}`
+remVelSlider.oninput = function atualizarRem() {
+    let remVel = remVelSlider.value / 100
+    remResp.innerHTML = `${remVel}`
 
     canvasSIR = document.getElementById('simplesSIR')
     divSimplesSIR.removeChild(canvasSIR)
@@ -47,7 +47,7 @@ function atualizarSIR() {
     let xTempo = allDeltas[0]
     let dataSus = allDeltas[1]
     let dataInf = allDeltas[2]
-    let dataRec = allDeltas[3]
+    let dataRem = allDeltas[3]
     
     // Criar o gráfico
     let graSimplesSIR = new Chart(canvasSIR, {
@@ -68,7 +68,7 @@ function atualizarSIR() {
                     fill: false
                 },
                 {
-                    data: dataRec,
+                    data: dataRem,
                     label: 'População Removida',
                     borderColor: 'grey',
                     fill: true
@@ -99,15 +99,15 @@ function deltas() {
     let tempo_max = 200
     let sus = 0.999
     let inf = 1 - sus
-    let rec = 0
+    let rem = 0
 
     let xTempo = []
     let dataSus = []
     let dataInf = []
-    let dataRec = []
+    let dataRem = []
 
     let infVel = infVelSlider.value / 10
-    let recVel = recVelSlider.value / 100
+    let remVel = remVelSlider.value / 100
     let resol = 0.4
 
 
@@ -116,26 +116,26 @@ function deltas() {
 
         // Variações de cada um dos grupos por time-step
         deltaSus = (-infVel * sus * inf) * resol
-        deltaInf = (infVel * sus * inf - recVel * inf) * resol
-        deltaRec = (recVel * inf) * resol
+        deltaInf = (infVel * sus * inf - remVel * inf) * resol
+        deltaRem = (remVel * inf) * resol
 
         // Valor atual da percentagem da população em cada grupo
         sus += deltaSus
         inf += deltaInf
-        rec += deltaRec
+        rem += deltaRem
 
         // Adição aos arrays dos valores calculados
         xTempo.push(t)
         dataSus.push(sus * 100)
         dataInf.push(inf * 100)
-        dataRec.push(rec * 100)
+        dataRem.push(rem * 100)
 
         if (deltaSus >= -0.00001 && deltaInf <= 0.00001 && t > 30) {
             break
         }
     }
 
-    return [xTempo, dataSus, dataInf, dataRec]
+    return [xTempo, dataSus, dataInf, dataRem]
 }
 
 window.onload = atualizarSIR
