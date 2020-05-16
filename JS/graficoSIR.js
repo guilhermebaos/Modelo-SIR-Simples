@@ -32,7 +32,7 @@ remVelSlider.oninput = function atualizarRem() {
 
 // Função para arredondar valores (PODE SER OTIMIZADA/ REMOVIDA)
 function arredondar(num=0, casas=1) {
-    let arredondado = (Math.round(num * (10 * casas)) / (10 * casas)).toFixed(casas)
+    let arredondado = (Math.round(num * (10 ** casas)) / (10 ** casas)).toFixed(casas)
     return arredondado
 }
 
