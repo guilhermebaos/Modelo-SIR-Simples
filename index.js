@@ -13,7 +13,7 @@ let divSimplesSIR = document.getElementById('div-simplesSIR')
 // Obter os Valores e mostrá-los, através de Event Listeners
 infVelSlider.oninput = function atualizarInf() {
     let infVel = infVelSlider.value / 10
-    infResp.innerHTML = `${infVel}`
+    infResp.innerHTML = `${infVel.toFixed(2)}`
 
     canvasSIR = document.getElementById('simplesSIR')
     divSimplesSIR.removeChild(canvasSIR)
@@ -22,7 +22,7 @@ infVelSlider.oninput = function atualizarInf() {
 
 remVelSlider.oninput = function atualizarRem() {
     let remVel = remVelSlider.value / 100
-    remResp.innerHTML = `${remVel}`
+    remResp.innerHTML = `${remVel.toFixed(2)}`
 
     canvasSIR = document.getElementById('simplesSIR')
     divSimplesSIR.removeChild(canvasSIR)
