@@ -13,9 +13,9 @@
             <h1>Modelo SIR</h1>
         </header>
         <section>
-            <div class="intro">
+            <div>
                 <p>
-                    O <a href="modeloSIR">modelo SIR</a> descreve matematicamente a evolução de uma doença numa população.<br>
+                    O <a href="modeloSIR.html">modelo SIR</a> descreve matematicamente a evolução de uma doença numa população.<br>
                     Para tal, divide a população em grupos e acompanha a sua evolução ao longo do tempo.
                 </p>
                 <p>
@@ -23,7 +23,7 @@
                     podemos usá-lo para compreender a evolução da doença e o que nós podemos fazer para controlar a sua incidência.
                 </p>
             </div>
-            <div class="sliders">
+            <div>
                 <table class="centered" id="sliders" >
                     <tr>
                         <td class="slider-label"><label for="inf">Velocidade de Infeção: </label></td>
@@ -32,14 +32,14 @@
                     </tr>
                     <tr>
                         <td class="slider-label"><label for="inf">Velocidade de Recuperação: </label></td>
-                        <td><input type="range" name="rem" id="rem" class="slider" min="20" max="100" value="60"></td>
+                        <td><input type="range" name="rem" id="rem" class="slider" min="0" max="100" value="60"></td>
                         <td><p id="remValue">0.60</p></td>
                     </tr>
                 </table>
             </div>
         </section>
-        <section id="graphs" class="graphs">
-            <div id="div-simplesSIR" class="div-simplesSIR">
+        <section>
+            <div id="div-simplesSIR">
             </div>
         </section>
     </main>

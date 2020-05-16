@@ -121,7 +121,7 @@ function deltas() {
 
     let infVel = infVelSlider.value / 10
     let remVel = remVelSlider.value / 100
-    let resol = 0.4
+    let resol = 0.3
 
 
     // Calcular as derivadas por time-step
@@ -143,7 +143,7 @@ function deltas() {
         dataInf.push(arredondar(inf * 100, 2))
         dataRem.push(arredondar(rem * 100, 2))
 
-        if (deltaSus >= -0.00001 && deltaInf <= 0.00001 && t > 30) {
+        if (deltaSus >= -0.001 && deltaRem <= 0.001 && t > 30) {
             break
         }
     }

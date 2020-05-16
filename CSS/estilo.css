@@ -1,6 +1,6 @@
 body {
     background: rgba(51, 139, 240, 0.3);
-    font: normal 15pt Calibri;
+    font: normal 14pt Calibri;
 }
 
 header {
@@ -33,6 +33,24 @@ table.centered tr td.slider-label {
 td p {
     height: 20px;
     margin: 0px;
+}
+
+table.grupos-SIR {
+    background-color: rgba(0, 0, 0, 0.04);
+    border-radius: 10px;
+}
+table.grupos-SIR tr.sus {
+    background-color: rgba(0, 100, 255, 0.3);
+}
+table.grupos-SIR tr.inf {
+    background-color: rgba(255, 0, 0, 0.3);
+}
+table.grupos-SIR tr.rem {
+    background-color: rgba(128, 128, 128, 0.3);
+}
+table.grupos-SIR td {
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 input.slider {
