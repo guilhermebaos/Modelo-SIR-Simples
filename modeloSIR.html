@@ -35,25 +35,26 @@
 
                 <p>Depois, descreve como cada um evolui:</p>
                 <table class="grupos-SIR">
+                    <caption>Clica no texto para saber mais sobre esse grupo!</caption>
                     <tr class="sus">
-                        <td>
+                        <td id="susInfo" onclick="mudarTextoSus()">
                             A população Suscétivel diminui com uma rapidez relacionada com: 
-                            O <b>Número de Infetados</b>, o <b>Número de Pessoas Suscetíveis</b> e a <b>Velocidade de Infeção</b>.
+                            O <b>Número de Infetados</b>, o <b>Número de Pessoas Suscetíveis</b> e a <b>Taxa de Infeção</b>.
                         </td>
                     </tr>
                     <tr class="inf">
-                        <td>
+                        <td id="infInfo" onclick="mudarTextoInf()">
                             O número de infetados varia de acordo com as mudanças nas populações Sucétivel e Removida:
                             <b>Quem deixa de estar Suscétivel passa a estar Infetado</b>, como descrito acima, e <b>quem foi Removido deixa de estar Infetado</b>, como descrito abaixo.
                         </td>
                     </tr>
                     <tr class="rem">
-                        <td>
+                        <td id="remInfo" onclick="mudarTextoRem()">
                             A população Removida aumenta a ritmo relacionado com:
                             O <b>Número de Infetados</b> e a <b>Taxa de Recuperação</b>.
                         </td>
                     </tr>
-                </table>
+                </table><br>
 
                 <p>Logo, a <i>flow</i> do modelo pode ser descrita da seguinte forma:</p>
                 <p class="flow">S &rArr; I &rArr; R</p>
@@ -66,6 +67,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="JS/graficoSIR.js"></script>
+    <script src="JS/modeloSIR.js"></script>
 </body>
 </html>

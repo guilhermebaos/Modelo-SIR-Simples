@@ -1,6 +1,6 @@
 // Selecionar os Sliders
-let infVelSlider = document.getElementById('inf')
-let remVelSlider = document.getElementById('rem')
+let infTaxaSlider = document.getElementById('inf')
+let remTaxaSlider = document.getElementById('rem')
 
 //Selecionar os parágrafos
 let infResp = document.getElementById('infValue')
@@ -11,18 +11,18 @@ let divSimplesSIR = document.getElementById('div-simplesSIR')
 
 
 // Obter os Valores e mostrá-los, através de Event Listeners
-infVelSlider.oninput = function atualizarInf() {
-    let infVel = infVelSlider.value / 10
-    infResp.innerHTML = `${infVel.toFixed(2)}`
+infTaxaSlider.oninput = function atualizarInf() {
+    let infTaxa = infTaxaSlider.value / 10
+    infResp.innerHTML = `${infTaxa.toFixed(2)}`
 
     canvasSIR = document.getElementById('simplesSIR')
     divSimplesSIR.removeChild(canvasSIR)
     atualizarSIR()
 }
 
-remVelSlider.oninput = function atualizarRem() {
-    let remVel = remVelSlider.value / 100
-    remResp.innerHTML = `${remVel.toFixed(2)}`
+remTaxaSlider.oninput = function atualizarRem() {
+    let remTaxa = remTaxaSlider.value / 100
+    remResp.innerHTML = `${remTaxa.toFixed(2)}`
 
     canvasSIR = document.getElementById('simplesSIR')
     divSimplesSIR.removeChild(canvasSIR)
@@ -119,8 +119,8 @@ function deltas() {
     let dataInf = []
     let dataRem = []
 
-    let infVel = infVelSlider.value / 10
-    let remVel = remVelSlider.value / 100
+    let infTaxa = infTaxaSlider.value / 10
+    let remTaxa = remTaxaSlider.value / 100
     let resol = 0.3
 
 
@@ -128,9 +128,9 @@ function deltas() {
     for(let t = tempo; t < tempo_max; t++ ) {
 
         // Variações de cada um dos grupos por time-step
-        deltaSus = (-infVel * sus * inf) * resol
-        deltaInf = (infVel * sus * inf - remVel * inf) * resol
-        deltaRem = (remVel * inf) * resol
+        deltaSus = (-infTaxa * sus * inf) * resol
+        deltaInf = (infTaxa * sus * inf - remTaxa * inf) * resol
+        deltaRem = (remTaxa * inf) * resol
 
         // Valor atual da percentagem da população em cada grupo
         sus += deltaSus
