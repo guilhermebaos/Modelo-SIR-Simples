@@ -12,7 +12,9 @@ main {
     background: white;
     border-radius: 10px;
     margin: auto;
-    width: 75%;
+    padding: 15px;
+    width: 75vw;
+    max-width: 1000px;
 }
 
 a {
@@ -31,6 +33,10 @@ a.a-2 {
 div {
     text-align: center;
     padding: 5px;
+}
+div.g-simples-SIR {
+    margin: auto;
+    max-width: 100vh;
 }
 
 table {

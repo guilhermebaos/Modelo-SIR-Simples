@@ -45,7 +45,6 @@ function atualizarSIR() {
     canvasSIR.setAttribute('height', '200')
 
     divSimplesSIR.appendChild(canvasSIR)
-    divSimplesSIR.focus()
 
 
     // Obter os arrays com as percentagens
