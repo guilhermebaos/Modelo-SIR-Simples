@@ -15,6 +15,19 @@ main {
     width: 75%;
 }
 
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+a.a-1 {
+    color: blue;
+}
+a.a-2 {
+    color: rgb(209, 164, 95);
+}
+
 div {
     text-align: center;
     padding: 15px;
