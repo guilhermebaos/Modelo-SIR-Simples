@@ -12,7 +12,7 @@ let divSimplesSIR = document.getElementById('div-simplesSIR')
 
 // Obter os Valores e mostrá-los, através de Event Listeners
 infTaxaSlider.oninput = function atualizarInf() {
-    let infTaxa = infTaxaSlider.value / 10
+    let infTaxa = infTaxaSlider.value / 20
     infResp.innerHTML = `${infTaxa.toFixed(2)}`
 
     canvasSIR = document.getElementById('simplesSIR')
@@ -21,7 +21,7 @@ infTaxaSlider.oninput = function atualizarInf() {
 }
 
 remTaxaSlider.oninput = function atualizarRem() {
-    let remTaxa = remTaxaSlider.value / 100
+    let remTaxa = remTaxaSlider.value / 50
     remResp.innerHTML = `${remTaxa.toFixed(2)}`
 
     canvasSIR = document.getElementById('simplesSIR')
@@ -45,6 +45,7 @@ function atualizarSIR() {
     canvasSIR.setAttribute('height', '200')
 
     divSimplesSIR.appendChild(canvasSIR)
+    divSimplesSIR.focus()
 
 
     // Obter os arrays com as percentagens
@@ -62,19 +63,19 @@ function atualizarSIR() {
             datasets: [
                 { 
                     data: dataSus,
-                    label: 'População Suscétivel',
+                    label: 'Suscétiveis',
                     borderColor: 'blue',
                     fill: false
                 },
                 {
                     data: dataInf,
-                    label: 'População Infetada',
+                    label: 'Infetados',
                     borderColor: 'red',
                     fill: false
                 },
                 {
                     data: dataRem,
-                    label: 'População Removida',
+                    label: 'Removidos',
                     borderColor: 'grey',
                     fill: true
                 }
@@ -92,10 +93,9 @@ function atualizarSIR() {
                 ],
                 yAxes: [
                     {
-                        ticks: {
-                            callback: function(value, index, values) {
-                                return value + '%'
-                            }
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Número de Pessoas'
                         }
                     }
                 ]
@@ -119,9 +119,13 @@ function deltas() {
     let dataInf = []
     let dataRem = []
 
-    let infTaxa = infTaxaSlider.value / 10
-    let remTaxa = remTaxaSlider.value / 100
+    let infTaxa = infTaxaSlider.value / 20
+    let remTaxa = remTaxaSlider.value / 50
     let resol = 0.3
+
+    let arredRem = 0
+    let arredInf = 0
+    let arredSus = 0
 
 
     // Calcular as derivadas por time-step
@@ -138,10 +142,14 @@ function deltas() {
         rem += deltaRem
 
         // Adição aos arrays dos valores calculados
+        arredRem = arredondar(rem * 1000, 0)
+        arredInf = arredondar(inf * 1000, 0)
+        arredSus = 1000 - arredInf - arredRem
+
         xTempo.push(t)
-        dataSus.push(arredondar(sus * 100, 2))
-        dataInf.push(arredondar(inf * 100, 2))
-        dataRem.push(arredondar(rem * 100, 2))
+        dataSus.push(arredSus)
+        dataInf.push(arredInf)
+        dataRem.push(arredRem)
 
         if (deltaSus >= -0.001 && deltaRem <= 0.001 && t > 30) {
             break
