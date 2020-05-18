@@ -30,11 +30,11 @@ a.a-2 {
 
 div {
     text-align: center;
-    padding: 15px;
+    padding: 5px;
 }
 
 table {
-    padding: 20px;
+    padding: 0px;
 }
 table.centered {
     margin: auto;
@@ -44,7 +44,7 @@ table.centered tr td.slider-label {
     text-align: right;
 }
 td p {
-    height: 20px;
+    height: 10px;
     margin: 0px;
 }
 
