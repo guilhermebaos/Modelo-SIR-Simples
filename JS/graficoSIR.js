@@ -62,19 +62,19 @@ function atualizarSIR() {
             datasets: [
                 { 
                     data: dataSus,
-                    label: 'População Suscétivel',
+                    label: 'Suscétiveis ',
                     borderColor: 'blue',
                     fill: false
                 },
                 {
                     data: dataInf,
-                    label: 'População Infetada',
+                    label: 'Infetados ',
                     borderColor: 'red',
                     fill: false
                 },
                 {
                     data: dataRem,
-                    label: 'População Removida',
+                    label: 'Removidos ',
                     borderColor: 'grey',
                     fill: true
                 }
@@ -89,13 +89,12 @@ function atualizarSIR() {
                             labelString: 'Tempo'
                         }
                     }
-                ],
+                ], 
                 yAxes: [
                     {
-                        ticks: {
-                            callback: function(value, index, values) {
-                                return value + '%'
-                            }
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Número de Pessoas'
                         }
                     }
                 ]
@@ -137,11 +136,15 @@ function deltas() {
         inf += deltaInf
         rem += deltaRem
 
-        // Adição aos arrays dos valores calculados
+        // Adição aos arrays dos valores calculados, arredondados e multiplicados por 1000
+        let arredRem = arredondar(rem * 1000, 0)
+        let arredInf = arredondar(inf * 1000, 0)
+        let arredSus = 1000 - arredInf - arredRem
+
         xTempo.push(t)
-        dataSus.push(arredondar(sus * 100, 2))
-        dataInf.push(arredondar(inf * 100, 2))
-        dataRem.push(arredondar(rem * 100, 2))
+        dataSus.push(arredSus)
+        dataInf.push(arredInf)
+        dataRem.push(arredRem)
 
         if (deltaSus >= -0.001 && deltaRem <= 0.001 && t > 30) {
             break
