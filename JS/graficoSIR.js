@@ -6,6 +6,10 @@ let remTaxaSlider = document.getElementById('rem')
 let infResp = document.getElementById('infValue')
 let remResp = document.getElementById('remValue')
 
+// Selecionar os bolds onde vão estar os resultados finais
+let maxInf = document.getElementById('concl-simplesSIR-maxInf')
+let totInf = document.getElementById('concl-simplesSIR-totInf')
+
 // Selecionar a Div onde vão estar os gráficos
 let divSimplesSIR = document.getElementById('div-simplesSIR')
 
@@ -30,11 +34,28 @@ remTaxaSlider.oninput = function atualizarRem() {
 }
 
 
+
+// Funções Gerais
+
 // Função para arredondar valores (PODE SER OTIMIZADA/ REMOVIDA)
 function arredondar(num=0, casas=1) {
     let arredondado = (Math.round(num * (10 ** casas)) / (10 ** casas)).toFixed(casas)
     return arredondado
 }
+
+// Máximo de um Array
+function maxArray(arr) {
+    let max = 0
+    for(let pos in arr) {
+        if (arr[pos] > max) {
+            max = arr[pos]
+        }
+    }
+    return max
+}
+
+
+// Funções Específicas
 
 // Atualizar o Gráfico
 function atualizarSIR() {
@@ -48,11 +69,15 @@ function atualizarSIR() {
 
 
     // Obter os arrays com as percentagens
-    let allDeltas = deltas()
-    let xTempo = allDeltas[0]
-    let dataSus = allDeltas[1]
-    let dataInf = allDeltas[2]
-    let dataRem = allDeltas[3]
+    let allPoints = deltas()
+    let xTempo = allPoints[0]
+    let dataSus = allPoints[1]
+    let dataInf = allPoints[2]
+    let dataRem = allPoints[3]
+
+    // Obter os valores finais e guardá-los nas tag bold
+    maxInf.innerHTML = `${maxArray(dataInf)}`
+    totInf.innerHTML = `${dataRem.slice(-1)[0] + dataInf.slice(-1)[0]}`
     
     // Criar o gráfico
     let graSimplesSIR = new Chart(canvasSIR, {
@@ -128,7 +153,7 @@ function deltas() {
 
 
     // Calcular as derivadas por time-step
-    for(let t = tempo; t < tempo_max; t++ ) {
+    for(let t = tempo; t < tempo_max; t++) {
 
         // Variações de cada um dos grupos por time-step
         deltaSus = (-infTaxa * sus * inf) * resol
@@ -141,9 +166,9 @@ function deltas() {
         rem += deltaRem
 
         // Adição aos arrays dos valores calculados
-        arredRem = arredondar(rem * 1000, 0)
-        arredInf = arredondar(inf * 1000, 0)
-        arredSus = 1000 - arredInf - arredRem
+        arredRem = Number(arredondar(rem * 1000, 0))
+        arredInf = Number(arredondar(inf * 1000, 0))
+        arredSus = Number(1000 - arredInf - arredRem)
 
         xTempo.push(t)
         dataSus.push(arredSus)
