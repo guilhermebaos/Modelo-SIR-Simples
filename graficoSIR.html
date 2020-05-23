@@ -23,11 +23,11 @@
                 </p>
                 <p>
                     Apesar de haver algumas limitações, relacionadas com <a href="premissasSIR.html" class="a-2">as premissas consideradas pelo modelo</a>,
-                    podemos usá-lo para compreender a evolução da doença e o que nós podemos fazer para controlar a sua incidência.
+                    podemos usá-lo para compreender que cenários poderiam acontecer caso não fossem tomadas medidas, movendo os sliders.
                 </p>
             </div>
             <div>
-                <p>Podemos estudar uma população de 1000 indivíduos:</p>
+                <h3>Vamos estudar uma população de 1000 indivíduos:</h3>
                 <table class="centered" id="sliders" >
                     <tr>
                         <td class="slider-label"><label for="inf">Taxa de Infeção: </label></td>
@@ -41,15 +41,34 @@
                     </tr>
                 </table>
             </div>
-            <div id="div-simplesSIR" class="g-simples-SIR">
-            </div>
+            <div id="div-simplesSIR" class="graf"></div>
             <div id='concl-simplesSIR'>
                 <p>Como podemos ver, o máximo de pessoas infetadas ao mesmo tempo foi de: <b id="concl-simplesSIR-maxInf">366</b></p>
                 <p>O número de pessoas infetadas no total foi de: <b id="concl-simplesSIR-totInf">970</b></p>
             </div>
-        </section>
+        </section><br>
         <section>
-            <div></div>
+            <div>
+                <p>
+                    Podemos perceber que um gráfico que acompanha o número de infetados ativos é útil, permitindo-nos ver se, a qualquer momento,
+                    existe capacidade suficiente para os tratar.
+                </p>
+                <p>
+                    Mas não será suficiente, podendo ser complementado com uma visualização do número de novos infetados
+                    em cada dia, que nos irá permitir ver se já passamos pelo pico de novos casos:
+                </p>
+            </div>
+            <div id="div-barrasSIR" class="graf"></div>
+            <div>
+                <p>
+                    Estes dois gráficos em conjunto ajudam-nos a reagir a possíveis cenários no caso do aparecimento
+                    de uma nova doença, a partir de estimativas dos valores das variáveis; sendo que, mesmo sem as saber, podemos perceber o que nos espera.
+                </p>
+                <p>
+                    Por exemplo, podemos ver que, se não fizermos nada, é bastante provável termos, numa dada altura, 10%, ou mais, da população infetada ao mesmo tempo,
+                    o que poderia ser desatroso, visto que provavelmente não teriamos capacidade para as tratar.
+                </p>
+            </div>
         </section>
     </main>
     <footer>
