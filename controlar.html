@@ -13,6 +13,31 @@
         <li><a href="controlar.html">Controlar a Doença</a></li>
     </ul>
     <main id="tudo">
+        <header>
+            <h1>Controlar a Doença</h1>
+        </header>
+        <section>
+            <div>
+                <h3>Começamos com o mesmo gráfico:</h3>
+                <table class="centered" id="sliders" >
+                    <tr>
+                        <td class="slider-label"><label for="inf">Taxa de Infeção: </label></td>
+                        <td><input type="range" name="inf" id="inf" class="slider" min="20" max="60" value="40"></td>
+                        <td><p id="infValue">2.00</p></td>
+                    </tr>
+                    <tr>
+                        <td class="slider-label"><label for="inf">Taxa de Recuperação: </label></td>
+                        <td><input type="range" name="rem" id="rem" class="slider" min="10" max="50" value="30"></td>
+                        <td><p id="remValue">0.60</p></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="div-simplesSIR" class="graf"></div>
+            <div id='concl-simplesSIR'>
+                <p>O máximo de pessoas infetadas ao mesmo tempo foi de: <b id="concl-simplesSIR-maxInf">366</b></p>
+                <p>O número de pessoas infetadas no total foi de: <b id="concl-simplesSIR-totInf">970</b></p>
+            </div>
+        </section><br>
     </main>
     <footer>
         <p>Feito a </p>
@@ -20,6 +45,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="JS/graficoSIR.js"></script>
+    <script src="JS/controlarSIR.js"></script>
 </body>
 </html>
