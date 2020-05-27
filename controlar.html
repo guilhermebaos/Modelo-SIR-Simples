@@ -19,14 +19,14 @@
         <section>
             <div>
                 <h3>Começamos com o mesmo gráfico:</h3>
-                <table class="centered" id="sliders" >
+                <table class="centered">
                     <tr>
                         <td class="slider-label"><label for="inf">Taxa de Infeção: </label></td>
                         <td><input type="range" name="inf" id="inf" class="slider" min="20" max="60" value="40"></td>
                         <td><p id="infValue">2.00</p></td>
                     </tr>
                     <tr>
-                        <td class="slider-label"><label for="inf">Taxa de Recuperação: </label></td>
+                        <td class="slider-label"><label for="rem">Taxa de Recuperação: </label></td>
                         <td><input type="range" name="rem" id="rem" class="slider" min="10" max="50" value="30"></td>
                         <td><p id="remValue">0.60</p></td>
                     </tr>
@@ -38,6 +38,30 @@
                 <p>O número de pessoas infetadas no total foi de: <b id="concl-simplesSIR-totInf">970</b></p>
             </div>
         </section><br>
+        <section>
+            <div>
+                <table class="centered">
+                    <tr>
+                        <td class="slider-label"><label for="novo_inf">Aumento da taxa de Infeção: </label></td>
+                        <td><input type="range" name="novo_inf" id="novo_inf" class="slider" min="2" max="18" value="10"></td>
+                        <td><p id="novo_infValue">50%</p></td>
+                    </tr>
+                    <tr>
+                        <td class="slider-label"><label for="novo_rem">Aumento da taxa de Recuperação: </label></td>
+                        <td><input type="range" name="novo_rem" id="novo_rem" class="slider" min="20" max="40" value="30"></td>
+                        <td><p id="novo_remValue">150%</p></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <p>Depois, podemos ver o que aconteceria se conseguissemos diminuir a taxa de infeção, através de medidas como a quarentena ou o distanciamento:</p>
+            </div>
+            <div id="div-controlarSIR" class="graf"></div>
+            <div id="concl-controlarSIR">
+                <p>O máximo de pessoas infetadas ao mesmo tempo foi de: <b id="concl-controlarSIR-maxInf">366</b> <i>(-12%)</i></p>
+                <p>O número de pessoas infetadas no total foi de: <b id="concl-simplesSIR-totInf">970</b> <i>(-12%)</i></p>
+            </div>
+        </section>
     </main>
     <footer>
         <p>Feito a </p>

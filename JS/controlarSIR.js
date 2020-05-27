@@ -2,9 +2,16 @@
 let infTaxaSlider = document.getElementById('inf')
 let remTaxaSlider = document.getElementById('rem')
 
+let novo_infTaxaSlider = document.getElementById('novo_inf')
+let novo_remTaxaSlider = document.getElementById('novo_rem')
+
 //Selecionar os parágrafos
 let infResp = document.getElementById('infValue')
 let remResp = document.getElementById('remValue')
+
+let novo_infResp = document.getElementById('novo_infValue')
+let novo_remResp = document.getElementById('novo_remValue')
+
 
 // Selecionar os bolds onde vão estar os resultados finais
 let maxInf = document.getElementById('concl-simplesSIR-maxInf')
@@ -12,6 +19,7 @@ let totInf = document.getElementById('concl-simplesSIR-totInf')
 
 // Selecionar a Div onde vão estar os gráficos
 let divSimplesSIR = document.getElementById('div-simplesSIR')
+let divControlarSIR = document.getElementById('div-controlarSIR')
 
 
 // Obter os Valores e mostrá-los, através de Event Listeners, removendo os canvas antigos
@@ -34,6 +42,31 @@ remTaxaSlider.oninput = function atualizarRem() {
     
     atualizarSIR()
 }
+
+novo_infTaxaSlider.oninput = function atualizarNovo_Inf() {
+    let novo_infTaxa = novo_infTaxaSlider.value * 5
+    novo_infResp.innerHTML = `${novo_infTaxa.toFixed(0)}%`
+
+    /*
+    canvasControlarSIR = document.getElementById('controlarSIR')
+    divControlarSIR.removeChild(canvasControlarSIR)
+
+    atualizarControlarSIR()
+    */
+}
+
+novo_remTaxaSlider.oninput = function atualizarNovo_Rem() {
+    let novo_remTaxa = novo_remTaxaSlider.value * 5
+    novo_remResp.innerHTML = `${novo_remTaxa.toFixed(0)}%`
+
+    /*
+    canvasControlarSIR = document.getElementById('controlarSIR')
+    divControlarSIR.removeChild(canvasControlarSIR)
+    
+    atualizarControlarSIR()
+    */
+}
+
 
 // Funções Gerais
 
