@@ -30,6 +30,11 @@ a.a-2 {
     color: rgb(209, 164, 95);
 }
 
+p.explicar {
+    font-size: 12pt;
+    font-style: italic;
+}
+
 div {
     text-align: center;
     padding: 5px;

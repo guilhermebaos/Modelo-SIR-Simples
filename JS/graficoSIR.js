@@ -64,6 +64,64 @@ function maxArray(arr) {
 
 // Funções Específicas
 
+// Calcular a variação de cada grupo por time-step
+function deltas() {
+    // Declarar variáveis para o cálculo da percentagem da população que está em cada grupo
+    let tempo = 0
+    let tempo_max = 200
+    let sus = 0.999
+    let inf = 1 - sus
+    let rem = 0
+
+    let xTempo = []
+    let dataSus = []
+    let dataInf = []
+    let dataDeltaInf = []
+    let dataRem = []
+
+    let infTaxa = infTaxaSlider.value / 20
+    let remTaxa = remTaxaSlider.value / 50
+    let resol = 0.3
+
+    let arredRem = 0
+    let arredInf = 0
+    let arredSus = 0
+
+
+    // Calcular as derivadas por time-step
+    for(let t = tempo; t < tempo_max; t++) {
+
+        // Variações de cada um dos grupos por time-step
+        deltaSus = (-infTaxa * sus * inf) * resol
+        deltaInf = (infTaxa * sus * inf - remTaxa * inf) * resol
+        deltaRem = (remTaxa * inf) * resol
+
+        // Valor atual da percentagem da população em cada grupo
+        sus += deltaSus
+        inf += deltaInf
+        rem += deltaRem
+
+        // Adição aos arrays dos valores calculados
+        arredRem = Number(arredondar(rem * 1000, 0))
+        arredInf = Number(arredondar(inf * 1000, 0))
+        arredDeltaInf = Number(arredondar(-deltaSus * 1000, 0))
+        arredSus = Number(1000 - arredInf - arredRem)
+
+        xTempo.push(t)
+        dataSus.push(arredSus)
+        dataInf.push(arredInf)
+        dataDeltaInf.push(arredDeltaInf)
+        dataRem.push(arredRem)
+
+        if (deltaSus >= -0.001 && deltaRem <= 0.001 && t > 30) {
+            break
+        }
+    }
+
+    return [xTempo, dataSus, dataInf, dataDeltaInf, dataRem]
+}
+
+
 // Atualizar os Gráficos
 function atualizarSIR() {
     // Criar o canvas para o gráfico de linhas
@@ -177,62 +235,5 @@ function atualizarSIR() {
     })
 }
 
-
-// Calcular a variação de cada grupo por time-step
-function deltas() {
-    // Declarar variáveis para o cálculo da percentagem da população que está em cada grupo
-    let tempo = 0
-    let tempo_max = 200
-    let sus = 0.999
-    let inf = 1 - sus
-    let rem = 0
-
-    let xTempo = []
-    let dataSus = []
-    let dataInf = []
-    let dataDeltaInf = []
-    let dataRem = []
-
-    let infTaxa = infTaxaSlider.value / 20
-    let remTaxa = remTaxaSlider.value / 50
-    let resol = 0.3
-
-    let arredRem = 0
-    let arredInf = 0
-    let arredSus = 0
-
-
-    // Calcular as derivadas por time-step
-    for(let t = tempo; t < tempo_max; t++) {
-
-        // Variações de cada um dos grupos por time-step
-        deltaSus = (-infTaxa * sus * inf) * resol
-        deltaInf = (infTaxa * sus * inf - remTaxa * inf) * resol
-        deltaRem = (remTaxa * inf) * resol
-
-        // Valor atual da percentagem da população em cada grupo
-        sus += deltaSus
-        inf += deltaInf
-        rem += deltaRem
-
-        // Adição aos arrays dos valores calculados
-        arredRem = Number(arredondar(rem * 1000, 0))
-        arredInf = Number(arredondar(inf * 1000, 0))
-        arredDeltaInf = Number(arredondar(-deltaSus * 1000, 0))
-        arredSus = Number(1000 - arredInf - arredRem)
-
-        xTempo.push(t)
-        dataSus.push(arredSus)
-        dataInf.push(arredInf)
-        dataDeltaInf.push(arredDeltaInf)
-        dataRem.push(arredRem)
-
-        if (deltaSus >= -0.001 && deltaRem <= 0.001 && t > 30) {
-            break
-        }
-    }
-
-    return [xTempo, dataSus, dataInf, dataDeltaInf, dataRem]
-}
 
 window.onload = atualizarSIR
