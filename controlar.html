@@ -44,7 +44,7 @@
                     Depois, podemos ver o que aconteceria se conseguissemos diminuir a taxa de infeção, através de medidas como a quarentena ou o distanciamento, 
                     ou aumentar as nossas capacidades de curar os infetados:
                 </p>
-                <p class="explicar">(As mudanças acontecem 15 dias depois da 1ª infeção)</p>
+                <p class="explicar">(As mudanças acontecem 20 dias depois da 1ª infeção)</p>
             </div>
             <div>
                 <table class="centered">
@@ -62,9 +62,24 @@
             </div>
             <div id="div-controlarSIR" class="graf"></div>
             <div id="concl-controlarSIR">
-                <p>O máximo de pessoas infetadas ao mesmo tempo foi de: <b id="concl-controlarSIR-maxInf">366</b> <i id="concl-controlarSIR-maxInfComparar">(-12%)</i></p>
-                <p>O número de pessoas infetadas no total foi de: <b id="concl-controlarSIR-totInf">970</b> <i id="concl-controlarSIR-totInfComparar">(-12%)</i></p>
+                <p>O máximo de pessoas infetadas ao mesmo tempo foi de: <b id="concl-controlarSIR-maxInf">366</b> <i id="concl-controlarSIR-maxInfComparar">(-0%)</i></p>
+                <p>O número de pessoas infetadas no total foi de: <b id="concl-controlarSIR-totInf">970</b> <i id="concl-controlarSIR-totInfComparar">(-0%)</i></p>
             </div>
+        </section><br>
+        <section>
+            <table class="centered">
+                <tr>
+                    <td class="slider-label"><label for="tempo">Dia em que as medidas são implementadas: </label></td>
+                    <td><input type="range" name="tempo" id="tempo" class="slider" min="5" max="35" value="20"></td>
+                    <td>Dia <span id="tempoValue">20</span></td>
+                </tr>
+            </table>
+                <div id="div-controlarTempoSIR" class="graf"></div>
+                <div id="concl-controlarTempoSIR">
+                    <p>O máximo de pessoas infetadas ao mesmo tempo foi de: <b id="concl-controlarTempoSIR-maxInf">366</b> <i id="concl-controlarTempoSIR-maxInfComparar">(-0%)</i></p>
+                    <p>O número de pessoas infetadas no total foi de: <b id="concl-controlarTempoSIR-totInf">970</b> <i id="concl-controlarTempoSIR-totInfComparar">(-0%)</i></p>
+                </div>
+
         </section>
     </main>
     <footer>
