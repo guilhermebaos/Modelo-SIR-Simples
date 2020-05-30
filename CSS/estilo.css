@@ -62,6 +62,7 @@ td p {
 table.grupos-SIR {
     background-color: rgba(0, 0, 0, 0.02);
     border-radius: 10px;
+    width: 100%;
 }
 table.grupos-SIR caption {
     color: rgba(50, 50, 50, 0.9);
@@ -81,6 +82,13 @@ table.grupos-SIR td {
     border-radius: 5px;
     padding: 4px 1px 4px 1px;
 }
+
+caption.grupos-SIR {
+    font-size: 13pt;
+    font-style: italic;
+    font-weight: bold;
+}
+
 
 input.slider {
     margin-top: 10px;

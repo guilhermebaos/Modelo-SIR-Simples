@@ -18,30 +18,31 @@ function mudarTextoSus() {
     } else {
         sus.innerHTML = `<b>Mais Pessoas Suscetíveis</b> &rArr; Mais Pessoas Suscetíveis que irão ser Infetadas <br>
                         <b>Mais Infetados</b> &rArr; Mais Pessoas Suscetíveis que irão ser Infetadas <br>
-                        <b>Maior Taxa de Infeção</b> &rArr; Mais Pessoas Suscetíveis que irão ser Infetadas`
+                        <b>Maior Taxa de Infeção</b> &rArr; Mais Pessoas Suscetíveis que irão ser Infetadas <br>
+                        <b>Mais Recuperados</b> &rArr; Mais Recuperados que irão perder Imunidade e voltar a estar Infetados.`
         novoTextoSus = true
     }
 }
 
 function mudarTextoInf() {
     if (novoTextoInf) {
-        inf.innerHTML = `O número de infetados varia de acordo com as mudanças nas populações Sucétivel e Removida:
+        inf.innerHTML = `O número de infetados varia de acordo com as mudanças nas populações Sucétivel e Recuperada:
                         <b>Quem deixa de estar Suscétivel passa a estar Infetado</b>, como descrito acima, e <b>quem foi Removido deixa de estar Infetado</b>, como descrito abaixo.`
         novoTextoInf = false
     } else {
-        inf.innerHTML = `<b>Variação da População Infetada</b> &equals; &minus;(Variação da População Suscetível + Variação da População Removida)`
+        inf.innerHTML = `<b>Variação da População Infetada</b> &equals; &minus;(Variação da População Suscetível + Variação da População Recuperada)`
         novoTextoInf = true
     }
 }
 
 function mudarTextoRem() {
     if (novoTextoRem) {
-        rem.innerHTML = `A população Removida aumenta a ritmo relacionado com:
+        rem.innerHTML = `A população Recuperada aumenta a ritmo relacionado com:
                         O <b>Número de Infetados</b> e a <b>Taxa de Recuperação</b>.`
         novoTextoRem = false
     } else {
-        rem.innerHTML = `<b>Mais Infetados</b> &rArr; Mais Infetados que irão ser Removidos <br>
-                        <b>Maior Taxa de Recuperação</b> &rArr; Mais Infetados que irão ser Removidos`
+        rem.innerHTML = `<b>Mais Infetados</b> &rArr; Mais Infetados que irão ser Recuperados <br>
+                        <b>Maior Taxa de Recuperação</b> &rArr; Mais Infetados que irão ser Recuperados`
         novoTextoRem = true
     }
 }

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como funciona o Modelo SIRS</title>
+
+    <link rel="stylesheet" href="CSS/estilo.css">
+</head>
+<body>
+    <ul class="navbar">
+        <li><a href="graficoSIR.html">Modelo SIR</a></li>
+        <li><a href="controlar.html">Controlar a Doença</a></li>
+        <li><a href="imunidade-de-grupo.html">Fase Endémica e Imunidade de Grupo</a></li>
+    </ul>
+    <main id="tudo">
+        <header>
+            <h1>Como funciona o modelo SIRS?</h1>
+        </header>
+        <section>
+            <div>
+                <p>Primeiro, considera três compartimentos por onde está distribuida toda a população:</p>
+                <table class="grupos-SIR">
+                    <tr class="sus">
+                        <td><b>Suscetíveis</b></td>
+                        <td>Quem ainda não foi Infetado</td>
+                    </tr>
+                    <tr class="inf">
+                        <td><b>Infetados</b></td>
+                        <td>Quem está atualmente Infetado, podendo contagiar quem está Suscétivel</td>
+                    </tr>
+                    <tr class="rem">
+                        <td><b>Recuperados</b></td>
+                        <td>Quem recuperou da infeção, tendo ganho imunidade temporária.</td>
+                    </tr>
+                </table><br>
+
+                <p>Depois, descreve como cada um evolui:</p>
+                <table class="grupos-SIR">
+                    <caption class="grupos-SIR">Clica no texto para saber mais sobre esse grupo!</caption>
+                    <tr class="sus">
+                        <td id="susInfo" onclick="mudarTextoSus()">
+                            A população Suscétivel diminui com uma rapidez relacionada com: 
+                            O <b>Número de Infetados</b>, o <b>Número de Pessoas Suscetíveis</b> e a <b>Taxa de Infeção</b>. <br>
+                            E aumenta há medida que os Recuperados perdem Imunidade.
+                        </td>
+                    </tr>
+                    <tr class="inf">
+                        <td id="infInfo" onclick="mudarTextoInf()">
+                            O número de infetados varia de acordo com as mudanças nas populações Sucétivel e Recuperada:
+                            <b>Quem deixa de estar Suscétivel passa a estar Infetado</b>, como descrito acima, e <b>quem Recupera deixa de estar Infetado</b>, como descrito abaixo.
+                        </td>
+                    </tr>
+                    <tr class="rem">
+                        <td id="remInfo" onclick="mudarTextoRem()">
+                            A população Recuperada aumenta a ritmo relacionado com:
+                            O <b>Número de Infetados</b> e a <b>Taxa de Recuperação</b>.
+                        </td>
+                    </tr>
+                </table><br>
+
+                <p>Logo, a <i>flow</i> do modelo pode ser descrita da seguinte forma:</p>
+                <p class="flow">S &rArr; I &rArr; R &rArr; S</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Feito a </p>
+        <p>&copy; Guilherme Silva</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="JS/modeloSIR.js"></script>
+</body>
+</html>
