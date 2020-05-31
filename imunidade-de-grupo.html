@@ -15,10 +15,14 @@
     </ul>
     <main id="tudo">
         <header>
-            <h1>Modelo SIRS</h1>
+            <h1>Fase Endémica e Imunidade de Grupo</h1>
         </header>
         <section>
             <div>
+                <p>
+                    Uma doença diz-se endémica quando o número de infetados ativos permanece mais ou menos constante durante longos períodos de tempo.
+                    Simplificando, é quando uma doença deixa de ameaçar infetar toda a população, mas ainda não a conseguimos erradicar.
+                </p>
                 <p>
                     O <a href="modeloSIRS.html" class="a-1">Modelo SIRS</a>, semelhante ao SIR, é também um modelo matemático usado para prever como se espalha uma doença numa população. <br>
                     A sua principal difereça é considerar que a imunidade ganha é apenas temporária, o que acontece em doenças sazonais, levando-nos a entender melhor como é que estas funcionam.
@@ -27,6 +31,33 @@
                     As suas <a href="premissasSIRS.html" class="a-2">premissas</a> são semelhantes, sendo a principal diferença a de que se assume que o número de mortos, em relação à população, é pequeno,
                     logo, podemos considerar, como aproximação, que todos os infetados Recuperam, ganhando <b>imunidade temporária</b>.
                 </p>
+            </div>
+        </section>
+        <section>
+            <div>
+                <table class="centered">
+                    <tr>
+                        <td class="slider-label"><label for="inf">Taxa de Infeção: </label></td>
+                        <td><input type="range" name="inf" id="inf" class="slider" min="20" max="60" value="40"></td>
+                        <td><span id="infValue">2.00</span></td>
+                    </tr>
+                    <tr>
+                        <td class="slider-label"><label for="rem">Taxa de Recuperação: </label></td>
+                        <td><input type="range" name="rem" id="rem" class="slider" min="10" max="50" value="30"></td>
+                        <td><span id="remValue">0.60</span></td>
+                    </tr>
+                    <tr><td><br></td></tr>
+                    <tr>
+                        <td class="slider-label"><label for="tempoIm">Duração da Imunidade: </label></td>
+                        <td><input type="range" name="tempoIm" id="tempoIm" class="slider" min="20" max="80" value="50"></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="div-simplesSIRS" class="graf"></div>
+            <div id='concl-simplesSIRS'>
+                <p>O máximo de pessoas infetadas ao mesmo tempo foi de: <b id="concl-simplesSIRS-maxInf">366</b></p>
+                <p>O número de pessoas infetadas no total foi de: <b id="concl-simplesSIRS-totInf">970</b></p>
             </div>
         </section>
     </main>
